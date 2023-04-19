@@ -1,0 +1,81 @@
+.signUp_page {
+  /* border: 3px solid black; */
+  width: 100%;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signUp_container {
+  /* border: 3px solid black; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUp_page_box {
+  /* border: 3px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 36rem;
+}
+
+.signUp_input_box {
+  margin: 2rem 0;
+  width: 27rem;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.signUp_input_box label {
+  color: #000000bf;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.signUp_input {
+  height: 2rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+.term_and_condition {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.term_and_condition span {
+  color: blue;
+  font-weight: 500;
+}
+.term_and_condition span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#signUp_submit_btn {
+  width: 100%;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-radius: 1.5rem;
+}
+
+.signUp_break {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+#google_signUp_btn {
+  border-radius: 1.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 2px solid #d6d6d6;
+}
+
+.already_user_btn {
+  font-size: 1rem;
+  text-align: center;
+}

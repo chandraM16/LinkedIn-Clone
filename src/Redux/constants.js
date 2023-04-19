@@ -1,0 +1,3 @@
+export const UPDATE_CURR_USER = "UPDATE_CURR_USER";
+export const LOGIN_CHECK = "LOGIN_CHECK";
+export const LOCAL_POST_ARR = "LOCAL_POST_ARR";

@@ -1,0 +1,138 @@
+.createPost_cont {
+  max-height: 10rem;
+  height: 5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  border-radius: 0.7rem;
+  border: 2px solid #eaeaea;
+}
+
+.center_profilePic_box {
+  /* border: 3px solid violet; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.center_profile_pic {
+  width: 3rem;
+  border-radius: 100%;
+}
+
+.blog_box {
+  /* border: 3px solid cadetblue; */
+  width: 100%;
+  padding-right: 1rem;
+  /* margin: 0 1rem; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.blog_btn {
+  cursor: pointer;
+  border: 2px solid #707070;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 4rem;
+  padding: 0 1rem;
+  color: #707070;
+  font-weight: 400;
+  /* margin: 0 2rem; */
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  max-height: 100rem;
+}
+
+.MuiDialogContent-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.currPost_img_cont {
+  /* border: 3px solid black; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+}
+.currPostImages {
+  /* border: 3px solid black; */
+  width: 4rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 0.5rem;
+}
+
+.preview_img {
+  width: 100%;
+  border-radius: 0.3rem;
+}
+
+.preview_img_close {
+  /* border: 1px solid black; */
+  border-radius: 100%;
+  font-size: 1rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.2rem;
+  cursor: pointer;
+}
+.preview_img_close:hover {
+  background-color: #707070;
+}
+
+.currPost_vid_cont {
+  /* border: 3px solid black; */
+  width: 100%;
+  margin: 0.3rem 0;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem 0;
+}
+
+.currPostVideo {
+  padding: 0;
+  /* border: 3px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 0.5rem;
+}
+
+.preview_vid {
+  max-width: 100%;
+  max-height: 5rem;
+  border-radius: 0.3rem;
+  position: relative;
+}
+
+.post_action_btn {
+  width: 100%;
+  /* border: 3px solid black; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.media_upload_btn {
+  display: flex;
+}
+
+.post_submit_btn {
+  /* border: 3px solid black; */
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.postLocalError{
+  margin-right: 1rem;
+}

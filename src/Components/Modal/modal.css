@@ -1,0 +1,13 @@
+.modal_cont {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* border: 3px solid violet; */
+  height: 100%;
+}
+
+.update-action-box {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
