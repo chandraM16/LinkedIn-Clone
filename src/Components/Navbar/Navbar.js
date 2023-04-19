@@ -25,10 +25,10 @@ export const Navbar = () => {
 
   function handleLogoutClick() {
     singOutFun();
-    localStorage.setItem("user", "");
     localStorage.setItem("isLogin", "");
     dispatch(updateCurrUserObj(null));
     dispatch(updateLoginCheck(false));
+    localStorage.setItem("user", "");
     dispatch(updatePostArr([]));
 
     navigate("/");

@@ -175,7 +175,7 @@ export default function MyModal() {
   };
 
   async function handleInfoUpdateSubmit() {
-    if (userInput.contactNo.length !== 10) {
+    if (userInput.contactNo.length !== 0 && userInput.contactNo.length !== 10 ) {
       setIsOk(false);
       setError("Contact No. Is Invalid");
       setTimeout(() => {

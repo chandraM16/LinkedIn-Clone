@@ -93,6 +93,7 @@ export default function PostBtn({
           userName: userInfo.currUser.userName,
           userProfile: userInfo.currUser.userProfilePicUrl,
           createdAt: Date.now(),
+          userAbout: userInfo.currUser.about,
         };
         console.table(postInfoObj);
         // updated AllPost array with new Post

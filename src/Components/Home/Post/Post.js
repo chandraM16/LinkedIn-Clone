@@ -19,8 +19,7 @@ export const Post = ({ postObj }) => {
         <div className="post_user_name_box">
           <h4 className="post_user_name">{postObj.userName}</h4>
           <p className="post_user_description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            voluptates atque saepe necessitatibus a{" "}
+            {postObj.userAbout && postObj.userAbout}
           </p>
           <p className="post_date">
             Posted on : {new Date(postObj.createdAt).toLocaleDateString()}
