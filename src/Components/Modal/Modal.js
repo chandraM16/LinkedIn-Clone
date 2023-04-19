@@ -9,7 +9,7 @@ import "../Modal/modal.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirebase } from "../Firebase/firebase";
 import { uuidv4 } from "@firebase/util";
-import { updateCurrUserObj } from "../../Redux/actions/action";
+import { updateCurrUserObj, updatePostArr } from "../../Redux/actions/action";
 
 const style = {
   position: "absolute",
@@ -148,6 +148,7 @@ export default function MyModal() {
     getUrlOfPost,
     updateTheCompleteDoc,
     getDocument,
+    getAllPostData
   } = useFirebase();
   const { currUser } = useSelector((store) => {
     return store.currUserInfo;
@@ -202,6 +203,8 @@ export default function MyModal() {
         await updateTheCompleteDoc("users/", currUser.userId, {
           userProfilePicUrl: url,
         });
+
+
         setIsLoading(false);
       }
 
@@ -239,7 +242,7 @@ export default function MyModal() {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <Avatar alt="Remy Sharp" src= {currUser.userProfilePicUrl} />
+        <Avatar alt="Remy Sharp" src={currUser.userProfilePicUrl} />
       </Button>
       <Modal
         open={open}

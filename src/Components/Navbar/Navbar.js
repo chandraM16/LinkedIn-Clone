@@ -10,6 +10,7 @@ import MyModal from "../Modal/Modal";
 import {
   updateCurrUserObj,
   updateLoginCheck,
+  updatePostArr,
 } from "../../Redux/actions/action";
 import { useNavigate } from "react-router-dom";
 
@@ -28,6 +29,7 @@ export const Navbar = () => {
     localStorage.setItem("isLogin", "");
     dispatch(updateCurrUserObj(null));
     dispatch(updateLoginCheck(false));
+    dispatch(updatePostArr([]));
 
     navigate("/");
   }
