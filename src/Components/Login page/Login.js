@@ -37,6 +37,24 @@ export const Login = () => {
     navigate("/home");
   }
 
+  async function handleDemo() {
+    try {
+      setIsLoading1(true);
+      const loginResponse = await logInUserWithEmailAndPassword(
+        "user1@gmail.com",
+        "123456789"
+      );
+      const userId = loginResponse.user.uid;
+      const userData = await getDataFromDataBase("users", userId);
+      handleAndSetUserData(userData);
+    } catch (userLoginError) {
+      console.log({ userLoginError });
+      manageLocalError("Incorrect Email or Password");
+    } finally {
+      setIsLoading1(false);
+    }
+  }
+
   async function handleUserLoginBtnClick() {
     if (!userInput.email || !userInput.password) {
       manageLocalError("Fill Both the Fields");
@@ -142,6 +160,24 @@ export const Login = () => {
                 disabled={isLoading1 || isLoading2}
               >
                 Log In
+                {isLoading1 && (
+                  <div
+                    className="spinner-border spinner-border-sm text-dark"
+                    role="status"
+                    style={{ margin: "0 0.5rem" }}
+                  >
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                )}
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                id="login_submit_btn"
+                onClick={handleDemo}
+                disabled={isLoading1 || isLoading2}
+              >
+                Try Demo
                 {isLoading1 && (
                   <div
                     className="spinner-border spinner-border-sm text-dark"
