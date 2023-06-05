@@ -81,12 +81,12 @@
   padding: 0.5rem 0;
 }
 .post_media {
-  width: 15rem;
+  width: 100%;
   border-radius: 0.3rem;
 }
 .post_media_vid {
   width: 100%;
-  height: 25rem ;
+  height: 25rem;
   border-radius: 0.3rem;
 }
 
@@ -155,7 +155,6 @@
   overflow: auto;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
-  
 }
 .post_comment::-webkit-scrollbar {
   display: none;

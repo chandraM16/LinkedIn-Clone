@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../Signup/signup.css";
 import { useFirebase } from "../Firebase/firebase";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,8 @@ export const Signup = () => {
   const [localError, setLocalError] = useState("");
   const [successText, setSuccessText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // function for handle user input
   function handleUserInputChange(type, text) {
     if (type === "email") {
       setUserInput({ ...userInput, email: text });
@@ -26,6 +28,8 @@ export const Signup = () => {
     }
   }
 
+
+  //Function to handle user Sign up
   async function handleUserSignUpClick() {
     if (!userInput.email || !userInput.password || !userInput.userName) {
       setLocalError("Fill All the Fields!");
@@ -49,6 +53,7 @@ export const Signup = () => {
         userInput.email,
         userInput.password
       );
+      console.log({ userSignUpResponse });
       const userObj = userSignUpResponse.user;
       console.log(userSignUpResponse.user);
       await putDataObjInDB(
@@ -63,7 +68,7 @@ export const Signup = () => {
       setTimeout(() => {
         setSuccessText("");
         navigate("/");
-      }, 2000);
+      }, 1000);
     } catch (signUpError) {
       console.log({ signUpError });
       setLocalError("Email is Already in Use");

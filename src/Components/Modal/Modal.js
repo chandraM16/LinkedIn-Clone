@@ -143,29 +143,41 @@ function ChildModal() {
 }
 
 export default function MyModal() {
+  // get all necessary function firebase
   const {
     uploadFileInStorage,
     getUrlOfPost,
     updateTheCompleteDoc,
     getDocument,
-    getAllPostData
+    getAllPostData,
   } = useFirebase();
+
+  // store
   const { currUser } = useSelector((store) => {
     return store.currUserInfo;
   });
-  console.table(currUser);
+
+  //dispatch
   const dispatch = useDispatch();
-  //   console.table(currUser);
+
+  //local user input
   const [userInput, setUserInput] = useState({
     userName: currUser.userName,
     about: currUser.about ?? "",
     city: currUser.city ?? "",
     contactNo: currUser.contactNo ?? "",
   });
+
+  const [message, setMessage] = useState({
+    status: "",
+    text: "",
+  });
   const [error, setError] = useState("");
   const [isOk, setIsOk] = useState(false);
   const [fileObj, setFileObj] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  //Material Ui State
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -174,11 +186,14 @@ export default function MyModal() {
     setOpen(false);
   };
 
+  // function for handle info update
   async function handleInfoUpdateSubmit() {
-    if (userInput.contactNo.length !== 0 && userInput.contactNo.length !== 10 ) {
+    if (userInput.contactNo.length !== 0 && userInput.contactNo.length !== 10) {
       setIsOk(false);
       setError("Contact No. Is Invalid");
+      setMessage({ status: "error", text: "Contact No. Is Invalid" });
       setTimeout(() => {
+        setMessage({ status: "", text: "" });
         setError("");
       }, 2000);
       return;
@@ -198,12 +213,12 @@ export default function MyModal() {
           "allProfilePic"
         );
         const { url } = await imgUrlPromise;
+        console.log({ url });
         dispatch(updateCurrUserObj({ ...currUser, userProfilePicUrl: url }));
 
         await updateTheCompleteDoc("users/", currUser.userId, {
           userProfilePicUrl: url,
         });
-
 
         setIsLoading(false);
       }

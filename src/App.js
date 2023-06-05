@@ -13,8 +13,13 @@ function App() {
       <Navbar />
 
       <Routes>
+        {/* Default route lead us to login page */}
         <Route path="/" element={<Login />} />
+
+        {/* for Sign Up Gape */}
         <Route path="/signUp" element={<Signup />} />
+
+        {/* For Home page through Protected routes */}
         <Route
           path="/home"
           element={

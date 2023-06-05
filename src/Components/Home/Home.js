@@ -29,7 +29,7 @@ export const Home = () => {
     <>
       <div className="home_cont">
         <div className="home_container">
-          <div className="leftSide_cont">
+          <div style={{paddingRight : "1rem"}} >
             <LeftSideBar userData={userInfo.currUser} />
           </div>
           <div className="center_cont">

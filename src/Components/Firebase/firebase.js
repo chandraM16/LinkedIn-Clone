@@ -47,13 +47,18 @@ const FirebaseContextObj = createContext();
 const fireStorage = getStorage(app);
 
 export const FirebaseWrapper = (props) => {
+  //function for sign up using email and password
   const signUpUser = async (email, password) => {
-    let userSignUpResponse = await createUserWithEmailAndPassword(
-      firebaseAuth,
-      email,
-      password
-    );
-    return userSignUpResponse;
+    try {
+      let userSignUpResponse = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        email,
+        password
+      );
+      return userSignUpResponse;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // sign with google
@@ -84,11 +89,17 @@ export const FirebaseWrapper = (props) => {
   const createObjInDatabase = async (path, id, userObj) => {
     console.log({ path });
     console.log({ id });
-    const firebaseDataAddResponse = await setDoc(
-      doc(firebaseDB, path, id),
-      userObj
-    );
-    console.log({ firebaseDataAddResponse });
+    console.log({ id });
+
+    try {
+      const firebaseDataAddResponse = await setDoc(
+        doc(firebaseDB, path, id),
+        userObj
+      );
+      console.log({ firebaseDataAddResponse });
+    } catch (error) {
+      console.log({ error });
+    }
   };
 
   // read database with given Doc id
@@ -103,9 +114,14 @@ export const FirebaseWrapper = (props) => {
     if (file == null) {
       return;
     }
-    const fileRef = ref(fireStorage, path);
-    const response = await uploadBytes(fileRef, file, metaData);
-    return response.metadata.fullPath;
+    try {
+      const fileRef = ref(fireStorage, path);
+      const response = await uploadBytes(fileRef, file, metaData);
+      
+      return response.metadata.fullPath;
+    } catch (error) {
+      console.log({ error });
+    }
   }
 
   async function getUrlOfMediaFile(path) {

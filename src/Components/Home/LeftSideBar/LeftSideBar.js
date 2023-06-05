@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 export const LeftSideBar = ({ userData }) => {
   const userInfo = useSelector((store) => store.currUserInfo);
   return (
-    <>
+    <div className="leftSide_cont">
       <div className="left_profile_cont">
         <div className="profile_bg_box">
           <img
@@ -60,6 +60,6 @@ export const LeftSideBar = ({ userData }) => {
           My Items
         </p>
       </div>
-    </>
+    </div>
   );
 };

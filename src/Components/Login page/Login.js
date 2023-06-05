@@ -29,6 +29,14 @@ export const Login = () => {
     }
   }
 
+  function handleAndSetUserData(userData) {
+    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("isLogin", true);
+    dispatch(updateCurrUserObj(userData));
+    dispatch(updateLoginCheck(true));
+    navigate("/home");
+  }
+
   async function handleUserLoginBtnClick() {
     if (!userInput.email || !userInput.password) {
       manageLocalError("Fill Both the Fields");
@@ -45,11 +53,7 @@ export const Login = () => {
         );
         const userId = loginResponse.user.uid;
         const userData = await getDataFromDataBase("users", userId);
-        localStorage.setItem("user", JSON.stringify(userData));
-        localStorage.setItem("isLogin", true);
-        dispatch(updateCurrUserObj(userData));
-        dispatch(updateLoginCheck(true));
-        navigate("/home");
+        handleAndSetUserData(userData);
       } catch (userLoginError) {
         console.log({ userLoginError });
         manageLocalError("Incorrect Email or Password");
@@ -66,11 +70,7 @@ export const Login = () => {
       const response = await signUpWithGoogle();
       //get the data of user from fireStore
       const userData = await getDataFromDataBase("users", response.user.uid);
-      localStorage.setItem("user", JSON.stringify(userData));
-      localStorage.setItem("isLogin", true);
-      dispatch(updateLoginCheck(true));
-      dispatch(updateCurrUserObj(userData));
-      navigate("/home");
+      handleAndSetUserData(userData);
     } catch (googleLoginError) {
       console.log({ googleLoginError });
       manageLocalError("User Not Found! Resister Please");
